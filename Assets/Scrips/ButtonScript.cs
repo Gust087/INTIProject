@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonScript : MonoBehaviour {
+public class ButtonScript : MonoBehaviour
+{
 
+    public SpriteRenderer popUp;
+    private void Start()
+    {
+        popUp = GetComponent<SpriteRenderer>();
+    }
     public void Exit()
     {
         Exit();
@@ -20,5 +26,9 @@ public class ButtonScript : MonoBehaviour {
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void HelpMain()
+    {
+        popUp.sortingOrder = 5;
     }
 }
