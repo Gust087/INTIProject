@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MachineScript : MonoBehaviour {
@@ -27,13 +26,13 @@ public class MachineScript : MonoBehaviour {
         {
             switch (tape_sr.sprite.name)
             {
-                case "maquina_cinta":
+                case "machine_2":
                     tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_2", typeof(Sprite));
                     break;
-                case "maquina_cinta_2":
+                case "machine_3":
                     tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_3", typeof(Sprite));
                     break;
-                case "maquina_cinta_3":
+                case "machine_1":
                     tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_1", typeof(Sprite));
                     break;
             }
