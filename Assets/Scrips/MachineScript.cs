@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class maquina : MonoBehaviour {
+public class MachineScript : MonoBehaviour {
 
     private IEnumerator coroutine;
     private SpriteRenderer tape_sr;
@@ -28,13 +28,13 @@ public class maquina : MonoBehaviour {
             switch (tape_sr.sprite.name)
             {
                 case "maquina_cinta":
-                    tape_sr.sprite = (Sprite)Resources.Load("Sprites/maquina_cinta_2", typeof(Sprite));
+                    tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_2", typeof(Sprite));
                     break;
                 case "maquina_cinta_2":
-                    tape_sr.sprite = (Sprite)Resources.Load("Sprites/maquina_cinta_3", typeof(Sprite));
+                    tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_3", typeof(Sprite));
                     break;
                 case "maquina_cinta_3":
-                    tape_sr.sprite = (Sprite)Resources.Load("Sprites/maquina_cinta", typeof(Sprite));
+                    tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_1", typeof(Sprite));
                     break;
             }
 
