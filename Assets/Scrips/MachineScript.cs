@@ -26,13 +26,13 @@ public class MachineScript : MonoBehaviour {
         {
             switch (tape_sr.sprite.name)
             {
-                case "machine_2":
+                case "machine_1":
                     tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_2", typeof(Sprite));
                     break;
-                case "machine_3":
+                case "machine_2":
                     tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_3", typeof(Sprite));
                     break;
-                case "machine_1":
+                case "machine_3":
                     tape_sr.sprite = (Sprite)Resources.Load("Sprites/machine_1", typeof(Sprite));
                     break;
             }
