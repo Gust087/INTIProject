@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 634539363}
-  cantMovement: 100
+  cantMovement: 140
 --- !u!1 &2109617617
 GameObject:
   m_ObjectHideFlags: 0

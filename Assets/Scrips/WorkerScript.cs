@@ -9,6 +9,20 @@ public class WorkerScript : MonoBehaviour {
 
     int count = 0;
     int numberDir = 0;
+    int vel = 1;
+
+    //int[] sales_stock_2 = new int[] {130, 300, 10}; // ida y vuelta es alrevés
+    //int[] dir_sales_stock_2 = new int[] { 0, 2, 0, 1, 3, 1};
+    //int[] material_stock_1 = new int[] { 130, 100, 10}; // ida y vuelta es alrevés
+    //int[] dir_material_stock_1 = new int[] { 0, 3, 0, 1, 2, 1};
+    //int[] maquina_materia_prima = new int[] { 80, 10, 10, 80}; // ida y vuelta es alrevés
+    //int[] dir_maquina_materia_prima = new int[] { 3,1,0,2};
+    //int[] maquina_mermeladas = new int[] { 50, 10, 10, 50}; // ida y vuelta es alrevés
+    //int[] dir_maquina_mermeladas = new int[] { 2,1,0,3};
+
+    // 0=arriba, 2=derecha, 3=izquierda, 1=abajo
+    int[] cantMov = new int[] { 80,10,300,10,80,50,10,300,10,50,130,300,10,10,300,130,130,100,10,10,100,130};
+    int[] recorrido = new int[] {3,1,99,0,2,2,1,99,0,3,0,2,0,1,3,1,0,3,0,1,2,1};
 
     const string
         wRight = "right",
@@ -25,32 +39,33 @@ public class WorkerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        CheckAnims(Move(numberDir));
+        CheckAnims(Move(recorrido[numberDir], vel));
 
-        if (count > cantMovement) {
+        if (count > cantMov[numberDir])
+        {
             numberDir++;
             count = 0;
         }
-        if (numberDir == 4)
+        if (numberDir == recorrido.Length)
         {
             numberDir = 0;
         }
-        transform.Translate(Move(numberDir));
+        transform.Translate(Move(recorrido[numberDir], vel));
         count++;
     }
 
-    Vector2 Move(int a)
+    Vector2 Move(int a, int v)
     {
         switch (a)
         {
             case 0:
-                return new Vector2(0f,0.025f);
+                return new Vector2(0f, 0.025f * v);
             case 1:
-                return new Vector2(0f,-0.025f);
+                return new Vector2(0f, -0.025f * v);
             case 2:
-                return new Vector2(0.025f,0f);
+                return new Vector2(0.025f * v, 0f);
             case 3:
-                return new Vector2(-0.025f,0f);
+                return new Vector2(-0.025f * v, 0f);
             default:
                 return new Vector2(0f,0f);
         }
