@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
     int time_count = 0;
     int box_count = 0;
-    bool active = true;
+    bool active = false;
 
     // Use this for initialization
     void Start () {
@@ -25,15 +25,23 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(box_count == jam_box.Count)
+        Animation_box(active);
+    }
+
+    void Animation_box(bool a)
+    {
+        if (box_count == 0)
         {
-            box_count = 0;
+            box_count = jam_box.Count - 1;
+            active = !active;
         }
-        if (Time.deltaTime % 99 == 0)
+        else if (time_count % 1100 == 0)
         {
-            jam_box[box_count].gameObject.SetActive(true);
-            box_count++;
+            empty_box[box_count].gameObject.SetActive(!a);
+            jam_box[box_count].gameObject.SetActive(a);
+            box_count--;
         }
+        time_count++;
     }
 
     void Instantiate_box() {
