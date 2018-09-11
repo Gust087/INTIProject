@@ -7,33 +7,49 @@ public class GameManager : MonoBehaviour {
     public GameObject box;
     public GameObject jam;
 
-    List<GameObject> empty_box = new List<GameObject>();
-    List<GameObject> jam_box = new List<GameObject>();
+    List<empty_box_script> empty_box = new List<empty_box_script>();
+    List<jam_box_script> jam_box = new List<jam_box_script>();
 
-    float[] stockX1 = new float[] { -3.4f, -2.7f, -0.3f, 0.4f };
-    float[] stockX2 = new float[] { };
-    float[] stockY = new float[] { 0.9f, 0.1f, -0.7f };
+    float[] stockX1 = new float[] { -1.6f, -0.8f, 1.4f, 2.2f };
+    float[] stockX2 = new float[] { 4.4f, 5.2f, 7.4f, 8.2f };
+    float[] stockY = new float[] { 4.2f, 3.3f, 2.5f };
+
+    int time_count = 0;
+    int box_count = 0;
+    bool active = true;
 
     // Use this for initialization
     void Start () {
-        for (int i = 0; i < stockY.Length; i++)
-        {
-            for (int a = 0; a < stockX1.Length; a++)
-            {
-                GameObject auxgo = Instantiate(box, new Vector2(a,i), new Quaternion());
-                empty_box.Add(auxgo.GetComponent<GameObject>());
-            }
-            for (int e = 0; e < stockX2.Length; e++)
-            {
-                GameObject auxgo = Instantiate(jam, new Vector2(e, i), new Quaternion());
-                empty_box.Add(auxgo.GetComponent<GameObject>());
-            }
-        }
+        Instantiate_box();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if(box_count == jam_box.Count)
+        {
+            box_count = 0;
+        }
+        if (Time.deltaTime % 99 == 0)
+        {
+            jam_box[box_count].gameObject.SetActive(true);
+            box_count++;
+        }
+    }
+
+    void Instantiate_box() {
+        for (int i = 0; i < stockY.Length; i++)
+        {
+            for (int a = 0; a < stockX1.Length; a++)
+            {
+                GameObject auxgo = Instantiate(box, new Vector2(stockX1[a], stockY[i]), new Quaternion());
+                empty_box.Add(auxgo.GetComponent<empty_box_script>());
+            }
+            for (int e = 0; e < stockX2.Length; e++)
+            {
+                GameObject auxgo2 = Instantiate(jam, new Vector2(stockX2[e], stockY[i]), new Quaternion());
+                jam_box.Add(auxgo2.GetComponent<jam_box_script>());
+            }
+        }
+    }
 
 }
