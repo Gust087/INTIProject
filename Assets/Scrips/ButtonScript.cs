@@ -73,27 +73,27 @@ public class ButtonScript : MonoBehaviour
         }
         count++;
     }
-    void Stock()
+    public void Stock()
     {
         SceneManager.LoadScene("Stock");
     }
-    void Cost()
+    public void Cost()
     {
         SceneManager.LoadScene("Cost");
     }
-    void Flow()
+    public void Flow()
     {
         SceneManager.LoadScene("Flow");
     }
-    void Purchase()
+    public void Purchase()
     {
         SceneManager.LoadScene("Purchase");
     }
-    void Sale()
+    public void Sale()
     {
         SceneManager.LoadScene("Sale");
     }
-    void Tax()
+    public void Tax()
     {
         SceneManager.LoadScene("Tax");
     } 
