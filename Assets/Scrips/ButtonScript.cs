@@ -60,7 +60,7 @@ public class ButtonScript : MonoBehaviour
             purchases.SetBool(animPurchase, true);
             sales.SetBool(animSale, true);
             taxes.SetBool(animTax, true);
-    }
+        }
         else
         {
             //Esconder botones
@@ -72,7 +72,30 @@ public class ButtonScript : MonoBehaviour
             taxes.SetBool(animTax, false);
         }
         count++;
+    }
+    void Stock()
+    {
 
+    }
+    void Cost()
+    {
 
-    }   
+    }
+    void Flow()
+    {
+
+    }
+    void Purcha()
+    {
+
+    }
+    void Sale()
+    {
+
+    }
+    void Tax()
+    {
+
+    } 
+
 }       

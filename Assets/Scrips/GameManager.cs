@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
             empty_box[box_count].gameObject.SetActive(!a);
             jam_box[box_count].gameObject.SetActive(a);
             box_count--;
-        }else if(time_count % 700 == 0) //6700
+        }else if(time_count % 6700 == 0)
         {
             attention.gameObject.SetActive(true);
         }
