@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour {
     public GameObject box;
     public GameObject jam;
 
-    List<empty_box_script> empty_box = new List<empty_box_script>();
-    List<jam_box_script> jam_box = new List<jam_box_script>();
+    List<EmptyBoxScript> empty_box = new List<EmptyBoxScript>();
+    List<JamBoxScript> jam_box = new List<JamBoxScript>();
+
+    AttentionScript attention;
 
     float[] stockX1 = new float[] { -1.6f, -0.8f, 1.4f, 2.2f };
     float[] stockX2 = new float[] { 4.4f, 5.2f, 7.4f, 8.2f };
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Instantiate_box();
+        attention = GetComponent<AttentionScript>();
     }
 	
 	// Update is called once per frame
@@ -40,6 +43,9 @@ public class GameManager : MonoBehaviour {
             empty_box[box_count].gameObject.SetActive(!a);
             jam_box[box_count].gameObject.SetActive(a);
             box_count--;
+        }else if(time_count % 6700 == 0)
+        {
+            attention.gameObject.SetActive(true);
         }
         time_count++;
     }
@@ -50,12 +56,12 @@ public class GameManager : MonoBehaviour {
             for (int a = 0; a < stockX1.Length; a++)
             {
                 GameObject auxgo = Instantiate(box, new Vector2(stockX1[a], stockY[i]), new Quaternion());
-                empty_box.Add(auxgo.GetComponent<empty_box_script>());
+                empty_box.Add(auxgo.GetComponent<EmptyBoxScript>());
             }
             for (int e = 0; e < stockX2.Length; e++)
             {
                 GameObject auxgo2 = Instantiate(jam, new Vector2(stockX2[e], stockY[i]), new Quaternion());
-                jam_box.Add(auxgo2.GetComponent<jam_box_script>());
+                jam_box.Add(auxgo2.GetComponent<JamBoxScript>());
             }
         }
     }

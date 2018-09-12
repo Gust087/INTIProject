@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class empty_box : MonoBehaviour {
+public class EmptyBoxScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class empty_box_script : MonoBehaviour {
+public class AttentionScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
