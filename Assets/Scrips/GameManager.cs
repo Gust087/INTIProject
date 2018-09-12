@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour {
 
     public GameObject box;
     public GameObject jam;
+    public GameObject attention;
 
     List<EmptyBoxScript> empty_box = new List<EmptyBoxScript>();
     List<JamBoxScript> jam_box = new List<JamBoxScript>();
-
-    AttentionScript attention;
+    
 
     float[] stockX1 = new float[] { -1.6f, -0.8f, 1.4f, 2.2f };
     float[] stockX2 = new float[] { 4.4f, 5.2f, 7.4f, 8.2f };
@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Instantiate_box();
-        attention = GetComponent<AttentionScript>();
     }
 	
 	// Update is called once per frame
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour {
             empty_box[box_count].gameObject.SetActive(!a);
             jam_box[box_count].gameObject.SetActive(a);
             box_count--;
-        }else if(time_count % 6700 == 0)
+        }else if(time_count % 700 == 0) //6700
         {
             attention.gameObject.SetActive(true);
         }
