@@ -12,6 +12,7 @@ public class ButtonScript : MonoBehaviour
     public Animator purchases;
     public Animator sales;
     public Animator taxes;
+    public Animator options;
 
     const string
     animStock = "stock",
@@ -70,6 +71,20 @@ public class ButtonScript : MonoBehaviour
             purchases.SetBool(animPurchase, false);
             sales.SetBool(animSale, false);
             taxes.SetBool(animTax, false);
+        }
+        count++;
+    }
+    public void OptionsInGame()
+    {
+        if (count % 2 == 0)
+        {
+            //Mostrar opciones
+            options.gameObject.SetActive(true);
+        }
+        else
+        {
+            //Esconder opciones
+            options.gameObject.SetActive(false);
         }
         count++;
     }
