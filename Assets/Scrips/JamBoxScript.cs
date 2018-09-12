@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JamBoxScript : MonoBehaviour {
+public class JamBoxScript: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
