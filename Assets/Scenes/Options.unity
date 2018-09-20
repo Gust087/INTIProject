@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1218,12 +1218,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attention: {fileID: 0}
+  soundON: {fileID: 0}
+  soundOFF: {fileID: 0}
+  FXON: {fileID: 0}
+  FXOFF: {fileID: 0}
   stock: {fileID: 0}
   costs: {fileID: 0}
   flows: {fileID: 0}
   purchases: {fileID: 0}
   sales: {fileID: 0}
   taxes: {fileID: 0}
+  options: {fileID: 0}
 --- !u!1 &1709522816
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour {
 
     List<EmptyBoxScript> empty_box = new List<EmptyBoxScript>();
     List<JamBoxScript> jam_box = new List<JamBoxScript>();
-    
+
+    ButtonScript btn;
 
     float[] stockX1 = new float[] { -1.6f, -0.8f, 1.4f, 2.2f };
     float[] stockX2 = new float[] { 4.4f, 5.2f, 7.4f, 8.2f };
@@ -23,11 +24,19 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Instantiate_box();
+        btn = GetComponent<ButtonScript>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         Animation_box(active);
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    if (ButtonScript.count_pc % 2 != 0 || ButtonScript.count_options % 2 != 0)
+        //    {
+        //        btn.ExitOfScreenGame();
+        //    }
+        //}
     }
 
     void Animation_box(bool a)
