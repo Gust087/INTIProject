@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class ButtonScript : MonoBehaviour
     public GameObject soundOFF;
     public GameObject FXON;
     public GameObject FXOFF;
+    public GameObject popup_machine;
+
+    public Text lot_produce;
+    public Text lot_top;
+    public Text lot_tag;
+    public Text lot_jar;
+    public Text lot_strawberry;
+    public Text lot_sugar;
 
     public Animator stock;
     public Animator costs;
@@ -18,13 +27,14 @@ public class ButtonScript : MonoBehaviour
     public Animator sales;
     public Animator taxes;
     public Animator options;
-    public Animator popup_machine;
 
     public static int count_pc = 0;
     public static int count_options = 0; 
     public static int count_machine = 0; 
     int count_sound = 0;
     int count_fx = 0;
+    int lot_prod = 0;
+    int lot_mat = 500;
 
     const string
     animStock = "stock",
@@ -33,12 +43,21 @@ public class ButtonScript : MonoBehaviour
     animPurchase = "compras",
     animSale = "ventas",
     animTax = "impuestos",
-    animOptions = "options",
-    animMachine = "popup_machine"
+    animOptions = "options"
     ;
 
     private void Start()
     {
+        UpdateUI();
+    }
+    private void UpdateUI()
+    {
+        lot_produce.text = lot_prod.ToString();
+        lot_top.text = lot_mat.ToString();
+        lot_tag.text = lot_mat.ToString();
+        lot_jar.text = lot_mat.ToString();
+        lot_strawberry.text = lot_mat.ToString();
+        lot_sugar.text = lot_mat.ToString();
     }
     public void Exit()
     {
@@ -53,7 +72,6 @@ public class ButtonScript : MonoBehaviour
         sales.SetBool(animSale, false);
         taxes.SetBool(animTax, false);
         options.SetBool(animOptions, false);
-        options.SetBool(animMachine, false);
     }
     public void Play()
     {
@@ -97,6 +115,33 @@ public class ButtonScript : MonoBehaviour
         }
         count_pc++;
     }
+    public void LotProducePlus()
+    {
+        if (lot_mat - 100 >= 0)
+        {
+            lot_mat -= 100;
+            lot_prod += 100;
+            UpdateUI();
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void LotProduceMinus()
+    {
+        if (lot_mat + 100 <= 500)
+        {
+            lot_mat += 100;
+            lot_prod -= 100;
+            UpdateUI();
+        }
+        else
+        {
+            return;
+        }
+
+    }
     public void OptionsInGame()
     {
         if (count_options % 2 == 0)
@@ -116,12 +161,12 @@ public class ButtonScript : MonoBehaviour
         if (count_machine % 2 == 0)
         {
             //Mostrar opciones
-            popup_machine.SetBool(animMachine, true);
+            popup_machine.SetActive(true);
         }
         else
         {
             //Esconder opciones
-            popup_machine.SetBool(animMachine, false);
+            popup_machine.SetActive(false);
         }
         count_machine++;
     }
