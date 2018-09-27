@@ -8,28 +8,36 @@ public class GameManager : MonoBehaviour {
     public GameObject jam;
     public GameObject attention;
 
-    List<EmptyBoxScript> empty_box = new List<EmptyBoxScript>();
-    List<JamBoxScript> jam_box = new List<JamBoxScript>();
+    public static GameManager instance;
 
-    ButtonScript btn;
+    public static List<EmptyBoxScript> empty_box = new List<EmptyBoxScript>();
+    public static List<JamBoxScript> jam_box = new List<JamBoxScript>();
+    public static List<JarScript> jar_list = new List<JarScript>();
 
-    float[] stockX1 = new float[] { -1.6f, -0.8f, 1.4f, 2.2f };
-    float[] stockX2 = new float[] { 4.4f, 5.2f, 7.4f, 8.2f };
-    float[] stockY = new float[] { 4.2f, 3.3f, 2.5f };
+    //ButtonScript btn;
 
-    int time_count = 0;
-    int box_count = 0;
-    bool active = false;
+    public static float[] stockX1 = new float[] { -1.6f, -0.8f, 1.4f, 2.2f };
+    public static float[] stockX2 = new float[] { 4.4f, 5.2f, 7.4f, 8.2f };
+    public static float[] stockY = new float[] { 4.2f, 3.3f, 2.5f };
+
+    public static int time_count = 0;
+    public static int time_count_jar = 0;
+    public static int box_count = 0;
+    public static bool active = false;
+    
 
     // Use this for initialization
-    void Start () {
-        Instantiate_box();
-        btn = GetComponent<ButtonScript>();
+    void Start ()
+    {
+        instance = this;
+
+        instance.Instantiate_box();
+        //btn = GetComponent<ButtonScript>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Animation_box(active);
+        instance.Animation_box(active);
         //if (Input.GetKeyDown(KeyCode.Mouse0))
         //{
         //    if (ButtonScript.count_pc % 2 != 0 || ButtonScript.count_options % 2 != 0)
@@ -37,6 +45,25 @@ public class GameManager : MonoBehaviour {
         //        btn.ExitOfScreenGame();
         //    }
         //}
+    }
+
+    public static IEnumerator move_jar(float waitTime, bool jam, int cant_jam)
+    {
+        
+        while (time_count_jar % 6700 == 0)
+        {
+            if(jam)
+            {
+                for (int a = 0; a < cant_jam; a++)
+                {
+                    GameObject auxgo = Instantiate((GameObject)Resources.Load("Prefabs/jam", typeof(GameObject)));
+                    jar_list.Add(auxgo.GetComponent<JarScript>());
+                    yield return new WaitForSeconds(waitTime);
+                }
+                jam = false;
+            }
+            time_count_jar++;
+        }
     }
 
     void Animation_box(bool a)
@@ -53,7 +80,7 @@ public class GameManager : MonoBehaviour {
             box_count--;
         }else if(time_count % 6700 == 0)
         {
-            attention.gameObject.SetActive(true);
+            instance.attention.gameObject.SetActive(true);
         }
         time_count++;
     }

@@ -13,6 +13,18 @@ public class ButtonScript : MonoBehaviour
     public GameObject FXOFF;
     public GameObject popup_machine;
 
+    public GameObject main_scene;
+    public GameObject stock_scene;
+    public GameObject purchase_scene;
+    public GameObject sale_scene;
+    public GameObject tax_scene;
+    public GameObject flow_scene;
+    public GameObject cost_scene;
+
+    public AudioClip ok;
+    public AudioClip fail;
+
+
     public Text lot_produce;
     public Text lot_top;
     public Text lot_tag;
@@ -35,6 +47,8 @@ public class ButtonScript : MonoBehaviour
     int count_fx = 0;
     int lot_prod = 0;
     int lot_mat = 500;
+    
+    private IEnumerator coroutine;
 
     const string
     animStock = "stock",
@@ -75,7 +89,37 @@ public class ButtonScript : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("InGame");
+        stock_scene.SetActive(false);
+        for (int i = 0; i < GameManager.empty_box.Count; i++)
+        {
+            GameManager.empty_box[i].GetComponent<SpriteRenderer>().enabled = true;
+        }
+        for (int i = 0; i < GameManager.jam_box.Count; i++)
+        {
+            GameManager.jam_box[i].GetComponent<SpriteRenderer>().enabled = true;
+        }
+        for (int i = 0; i < GameManager.jar_list.Count; i++)
+        {
+            GameManager.jar_list[i].GetComponent<SpriteRenderer>().enabled = true;
+        }
+        main_scene.SetActive(true);
+    }
+    public void Stock()
+    {
+        main_scene.SetActive(false);
+        for (int i = 0; i < GameManager.empty_box.Count; i++)
+        {
+            GameManager.empty_box[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+        for (int i = 0; i < GameManager.jam_box.Count; i++)
+        {
+            GameManager.jam_box[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+        for (int i = 0; i < GameManager.jar_list.Count; i++)
+        {
+            GameManager.jar_list[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+        stock_scene.SetActive(true);
     }
     public void Options()
     {
@@ -85,10 +129,37 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void Cost()
+    {
+        SceneManager.LoadScene("Cost");
+    }
+    public void Flow()
+    {
+        SceneManager.LoadScene("Flow");
+    }
+    public void Purchase()
+    {
+        SceneManager.LoadScene("Purchase");
+    }
+    public void Sale()
+    {
+        SceneManager.LoadScene("Sale");
+    }
+    public void Tax()
+    {
+        SceneManager.LoadScene("Tax");
+    }
     public void HelpMain()
     {
     }
-
+    public void SoundPlayOK()
+    {
+        AudioSource.PlayClipAtPoint(ok, Camera.main.transform.position);
+    }
+    public void SoundPlayFail()
+    {
+        AudioSource.PlayClipAtPoint(fail, Camera.main.transform.position);
+    }
     public void Attention()
     {
         //Quitar globo atención
@@ -170,30 +241,12 @@ public class ButtonScript : MonoBehaviour
         }
         count_machine++;
     }
-    public void Stock()
-    {
-        SceneManager.LoadScene("Stock");
+    public void Produce() {
+        /*esta corutina hace que empiecen a salir mermeladas de la maquina*/
+        coroutine = GameManager.move_jar(3f, true, 3);
+        StartCoroutine(coroutine);
+        /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     }
-    public void Cost()
-    {
-        SceneManager.LoadScene("Cost");
-    }
-    public void Flow()
-    {
-        SceneManager.LoadScene("Flow");
-    }
-    public void Purchase()
-    {
-        SceneManager.LoadScene("Purchase");
-    }
-    public void Sale()
-    {
-        SceneManager.LoadScene("Sale");
-    }
-    public void Tax()
-    {
-        SceneManager.LoadScene("Tax");
-    } 
     public void Sound()
     {
         if (count_sound % 2 == 0)

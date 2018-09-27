@@ -5,7 +5,7 @@ public class MachineScript : MonoBehaviour {
 
     private IEnumerator coroutine;
     private SpriteRenderer tape_sr;
-
+    
     // Use this for initialization
     void Start () {
         tape_sr = gameObject.GetComponent<SpriteRenderer>();

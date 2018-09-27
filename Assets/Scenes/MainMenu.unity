@@ -336,7 +336,6 @@ GameObject:
   - component: {fileID: 979842527}
   - component: {fileID: 979842526}
   - component: {fileID: 979842525}
-  - component: {fileID: 979842528}
   m_Layer: 5
   m_Name: Empezar
   m_TagString: Untagged
@@ -402,8 +401,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 979842528}
+      - m_Target: {fileID: 2032266772}
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2032266772}
+        m_MethodName: SoundPlayOK
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -449,29 +459,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 979842523}
   m_CullTransparentMesh: 0
---- !u!114 &979842528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 979842523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc855fae20a2bff4ebaca4c809a73590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attention: {fileID: 0}
-  soundON: {fileID: 0}
-  soundOFF: {fileID: 0}
-  FXON: {fileID: 0}
-  FXOFF: {fileID: 0}
-  stock: {fileID: 0}
-  costs: {fileID: 0}
-  flows: {fileID: 0}
-  purchases: {fileID: 0}
-  sales: {fileID: 0}
-  taxes: {fileID: 0}
-  options: {fileID: 0}
 --- !u!1 &1126553074
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +545,6 @@ GameObject:
   - component: {fileID: 1216819535}
   - component: {fileID: 1216819534}
   - component: {fileID: 1216819533}
-  - component: {fileID: 1216819536}
   m_Layer: 5
   m_Name: Opciones
   m_TagString: Untagged
@@ -624,8 +610,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1216819536}
+      - m_Target: {fileID: 2032266772}
         m_MethodName: Options
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2032266772}
+        m_MethodName: SoundPlayOK
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -671,29 +668,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216819531}
   m_CullTransparentMesh: 0
---- !u!114 &1216819536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1216819531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc855fae20a2bff4ebaca4c809a73590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attention: {fileID: 0}
-  soundON: {fileID: 0}
-  soundOFF: {fileID: 0}
-  FXON: {fileID: 0}
-  FXOFF: {fileID: 0}
-  stock: {fileID: 0}
-  costs: {fileID: 0}
-  flows: {fileID: 0}
-  purchases: {fileID: 0}
-  sales: {fileID: 0}
-  taxes: {fileID: 0}
-  options: {fileID: 0}
 --- !u!1 &1385525117
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +775,6 @@ GameObject:
   - component: {fileID: 1688445730}
   - component: {fileID: 1688445729}
   - component: {fileID: 1688445728}
-  - component: {fileID: 1688445731}
   m_Layer: 5
   m_Name: Salir
   m_TagString: Untagged
@@ -867,8 +840,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1688445731}
+      - m_Target: {fileID: 2032266772}
         m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2032266772}
+        m_MethodName: SoundPlayFail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -914,29 +898,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688445726}
   m_CullTransparentMesh: 0
---- !u!114 &1688445731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1688445726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc855fae20a2bff4ebaca4c809a73590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attention: {fileID: 0}
-  soundON: {fileID: 0}
-  soundOFF: {fileID: 0}
-  FXON: {fileID: 0}
-  FXOFF: {fileID: 0}
-  stock: {fileID: 0}
-  costs: {fileID: 0}
-  flows: {fileID: 0}
-  purchases: {fileID: 0}
-  sales: {fileID: 0}
-  taxes: {fileID: 0}
-  options: {fileID: 0}
 --- !u!1 &1864945966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +974,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2032266771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032266773}
+  - component: {fileID: 2032266772}
+  m_Layer: 0
+  m_Name: MainManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2032266772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032266771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc855fae20a2bff4ebaca4c809a73590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attention: {fileID: 0}
+  soundON: {fileID: 0}
+  soundOFF: {fileID: 0}
+  FXON: {fileID: 0}
+  FXOFF: {fileID: 0}
+  popup_machine: {fileID: 0}
+  ok: {fileID: 8300000, guid: 50b66ddd63d64cf45825f93acff61d91, type: 3}
+  fail: {fileID: 8300000, guid: e194d85c7cb676b4a98c62f1e104b9ff, type: 3}
+  lot_produce: {fileID: 0}
+  lot_top: {fileID: 0}
+  lot_tag: {fileID: 0}
+  lot_jar: {fileID: 0}
+  lot_strawberry: {fileID: 0}
+  lot_sugar: {fileID: 0}
+  stock: {fileID: 0}
+  costs: {fileID: 0}
+  flows: {fileID: 0}
+  purchases: {fileID: 0}
+  sales: {fileID: 0}
+  taxes: {fileID: 0}
+  options: {fileID: 0}
+--- !u!4 &2032266773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032266771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 335.89966, y: 189.00052, z: -2.946373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060332269
 GameObject:
