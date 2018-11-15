@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorkerScript : MonoBehaviour {
 
     public Animator animator;
-    public int cantMovement;
+    //public int cantMovement;
 
     int count = 0;
     int numberDir = 0;
@@ -21,7 +21,7 @@ public class WorkerScript : MonoBehaviour {
     //int[] dir_maquina_mermeladas = new int[] { 2,1,0,3};
 
     // 0=arriba, 2=derecha, 3=izquierda, 1=abajo
-    int[] cantMov = new int[] { 80,10,300,10,80,50,10,300,10,50,130,300,10,10,300,130,130,100,10,10,100,130};
+    int[] cantMov = new int[] { 50,40,300,40,50,50,40,300,40,50,40,230,30,30,230,40,40,120,30,30,120,40};
     int[] recorrido = new int[] {3,1,99,0,2,2,1,99,0,3,0,2,0,1,3,1,0,3,0,1,2,1};
 
     const string
@@ -38,20 +38,27 @@ public class WorkerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        CheckAnims(Move(recorrido[numberDir], vel));
-
-        if (count > cantMov[numberDir])
+        if (AnimationScript.Is_holiday)
         {
-            numberDir++;
-            count = 0;
+            CheckAnims(Move(recorrido[3], 0));
+            return;
         }
-        if (numberDir == recorrido.Length)
+        else
         {
-            numberDir = 0;
+            CheckAnims(Move(recorrido[numberDir], vel));
+
+            if (count > cantMov[numberDir])
+            {
+                numberDir++;
+                count = 0;
+            }
+            if (numberDir == recorrido.Length)
+            {
+                numberDir = 0;
+            }
+            transform.Translate(Move(recorrido[numberDir], vel));
+            count++;
         }
-        transform.Translate(Move(recorrido[numberDir], vel));
-        count++;
     }
 
     Vector2 Move(int a, int v)

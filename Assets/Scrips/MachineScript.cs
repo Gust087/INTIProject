@@ -17,12 +17,24 @@ public class MachineScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
+
+    private void OnEnable()
+    {
+        coroutine = move_tape(.3f);
+        StartCoroutine(coroutine);
+
+    }
 
     private IEnumerator move_tape(float waitTime)
     {
-        while(true)
+        if (tape_sr == null)
+        {
+            tape_sr = gameObject.GetComponent<SpriteRenderer>();
+
+        }
+        while (true && !AnimationScript.Is_holiday)
         {
             switch (tape_sr.sprite.name)
             {
