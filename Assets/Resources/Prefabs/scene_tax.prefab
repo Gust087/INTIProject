@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 222154356716429176}
   - component: {fileID: 114222327799398376}
   - component: {fileID: 114608769598151558}
-  - component: {fileID: 114082252396186392}
   m_Layer: 5
   m_Name: volver
   m_TagString: Untagged
@@ -124,45 +123,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114082252396186392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1775993273927314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc855fae20a2bff4ebaca4c809a73590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attention: {fileID: 0}
-  soundON: {fileID: 0}
-  soundOFF: {fileID: 0}
-  FXON: {fileID: 0}
-  FXOFF: {fileID: 0}
-  popup_machine: {fileID: 0}
-  main_scene: {fileID: 0}
-  stock_scene: {fileID: 0}
-  purchase_scene: {fileID: 0}
-  sale_scene: {fileID: 0}
-  tax_scene: {fileID: 0}
-  flow_scene: {fileID: 0}
-  cost_scene: {fileID: 0}
-  ok: {fileID: 0}
-  fail: {fileID: 0}
-  lot_produce: {fileID: 0}
-  lot_top: {fileID: 0}
-  lot_tag: {fileID: 0}
-  lot_jar: {fileID: 0}
-  lot_strawberry: {fileID: 0}
-  lot_sugar: {fileID: 0}
-  stock: {fileID: 0}
-  costs: {fileID: 0}
-  flows: {fileID: 0}
-  purchases: {fileID: 0}
-  sales: {fileID: 0}
-  taxes: {fileID: 0}
-  options: {fileID: 0}
 --- !u!114 &114127808996313260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,18 +258,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114222327799398376}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114082252396186392}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!212 &212684551004744164
